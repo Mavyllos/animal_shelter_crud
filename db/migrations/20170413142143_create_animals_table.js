@@ -4,6 +4,7 @@ return knex.schema.createTable('animals', table => {
   table.text('image_url').notNullable()
   table.string('name').notNullable()
   table.string('kind').notNullable()
+  table.string('breed').notNullable()
   table.integer('age').notNullable()
   table.string('description').notNullable()
   table.boolean('is_adopted').notNullable()

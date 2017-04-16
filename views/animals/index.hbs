@@ -1,0 +1,68 @@
+<div class="container-fluid animals-cont">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+      <button id="allAnimals" name="allAnimals" class="btn btn-sm btn-link"><a href="/animals/">All Pets</a></button>
+      <span> | </span>
+      <button id="adoptableAnimals" name="adoptableAnimals" class="btn btn-sm btn-link">Adoptable Pets</button>
+      <span> | </span>
+      <button id="adoptedAnimals" name="adoptedAnimals" class="btn btn-sm btn-link">Adopted Pets</button>
+    </div>
+
+    <!-- Table -->
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Kind</th>
+        <th>Breed</th>
+        <th>Age</th>
+        <th>Availability</th>
+        <th>More Info</th>
+        <th>Actions</th>
+      </tr>
+          {{#each animals}}
+        {{#if this.is_adopted}}
+          <tr class="adoptedPet">
+          {{else}}
+          <tr class="availablePet">
+        {{/if}}
+        <td class="name"><a href="/animals/{{ this.id }}" class="name-data">{{ this.name }}</td>
+        <td class="kind">{{ this.kind }}</td>
+        <td class="breed">{{ this.breed }}</td>
+        <td class="age">{{ this.age }}</td>
+        <td class="availability">
+          {{#if this.is_adopted}}
+            <p>Sorry, I have a family!</p>
+          {{else}}
+            <p>Take me home!</p>
+          {{/if}}
+          </div>
+        </td>
+          {{#if this.is_adopted}}
+            <td><a href="/animals/{{ this.id }}" class="pet-name-link">Don't Give Up!<br> We Have Many Pets!</td>
+              {{else}}
+                <td><a href="/animals/{{ this.id }}" class="pet-name-link">Click Here <br>To Learn<br>More!</td>
+          {{/if}}
+        <td>
+          {{#if this.is_adopted}}
+            <p>Closed<p>
+              {{else}}
+                <form action="/animals/{{ this.id }}/edit">
+                  <button class="btn btn-sm btn-link"
+                  type="submit"
+                  name="edit-button"
+                  value="Edit">Edit</button>
+                </form>
+                <form action="/animals/{{ this.id }}?_method=DELETE" method="POST">
+                  <button class="btn btn-sm btn-link"
+                  type="submit"
+                  name="delete"
+                  value="Delete">Delete</button>
+                </form>
+          {{/if}}
+        </td>
+      </tr>
+      {{/each}}
+    </table>
+  </div>
+</div>

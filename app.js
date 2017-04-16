@@ -3,10 +3,13 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 
 
 var index = require('./routes/index');
 var animals = require('./routes/animals');
+var ids = require('./routes/animals');
+var hbs = require('hbs');
 
 var app = express();
 
@@ -15,14 +18,17 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'images', 'paw-print-512.ico')));
 app.use(logger('dev'));
+app.use(methodOverride('_method'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
 
 app.use('/', index);
 app.use('/animals', animals);
+app.use('/animals/', ids);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
