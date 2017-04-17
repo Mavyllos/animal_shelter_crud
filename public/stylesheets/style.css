@@ -1,20 +1,43 @@
+html,
 body {
+    height: 100%;
+}
+
+.item,
+.active {
+    height: 100%;
+}
+
+.fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+/*body {
   padding: 50px;
   padding-bottom: 100px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+}*/
 
 a {
   color: #00B7FF;
 }
 
 .animal-image {
-  /*margin: 2rem auto;*/
   height: 300px;
   width: 375px;
 }
 
-.btn-link{
+.btn-link {
   border:none;
   outline:none;
   background:none;
@@ -49,27 +72,24 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: black;
 }
 
-/*#home-logo {
-  padding: 5px;
-}*/
+.panel-heading {
+  padding-top: 40px;
+}
 
+.rehome-head {
+  padding-top: 60px;
+  padding-bottom: 100px;
+}
 
-.navbar-fixed-bottom {
+/*.navbar-fixed-bottom {
   color: white;
   padding-top: 10px !important;;
   padding-bottom: 10px !important;;
   padding-left: 0 !important;;
   padding-right: 0 !important;;
   width: 100% !important;
-}
+}*/
 
-.navbar-fixed-bottom a {
+/*.navbar-fixed-bottom a {
   color: white;
-}
-
-/*.navbar-fixed-bottom {
-  position: sticky;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 100% !important;
 }*/
